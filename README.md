@@ -47,6 +47,17 @@ It consists of five main components, each running in its own Docker container:
 | Dataset          | Kaggle Fake and Real News Dataset    |
 
 ---
+## 🧑‍💻 Author
+
+- **Priyanshu Vaniya**
+- [GitHub Profile](https://github.com/PriyanshuVaniya)
+- Contact: priyanshuvaniya2703@gmail.com
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## 🚀 Setup Instructions
 
