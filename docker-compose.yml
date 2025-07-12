@@ -1,0 +1,41 @@
+version: '3.9'
+
+services:
+  data-collection:
+    build: ./data-collection
+    volumes:
+      - ./data-collection:/app
+    working_dir: /app
+    ports:
+    - "5000:5000"
+    depends_on:
+    - ai-model
+    networks:
+      - fake-news-net
+
+  ai-model:
+    build: ./ai-model
+    volumes:
+      - ./ai-model:/app
+    working_dir: /app
+    command: uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - "8000:8000"
+    networks:
+      - fake-news-net
+
+  api-gateway:
+    build: ./api-gateway
+    volumes:
+      - ./api-gateway:/app
+    working_dir: /app
+    ports:
+      - "8080:8080"
+    networks:
+      - fake-news-net
+    depends_on:
+      - ai-model
+
+networks:
+  fake-news-net:
+    driver: bridge
